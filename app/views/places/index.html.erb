@@ -1,11 +1,16 @@
-<h1>Places</h1>
-
 <ul>
+  <% if @current_user %>
+  <h1>Places</h1>
   <% for place in @places %>
     <li><a href="/places/<%= place["id"] %>"><%= place["name"] %></a></li>
   <% end %>
+  <p>
+  <a href="/places/new">New place</a>
+  </p>
+  <% else %>
+    <h1>Travel Journal</h1>
+    <li>Welcome to your travel journal. You will need to login to start using the site!</li>
+  <% end %>
+</ul>
 </ul>
 
-<p>
-  <a href="/places/new">New place</a>
-</p>
