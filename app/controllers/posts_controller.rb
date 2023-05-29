@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 
     # assign user-entered form data to Contact's columns
     @post["title"] = params["post"]["title"]
+    @post["user_id"] = params["post"]["user_id"]
     @post["description"] = params["post"]["description"]
     @post["posted_on"] = params["post"]["posted_on"]
     @post["created_at"] = params["post"]["created_at"]
