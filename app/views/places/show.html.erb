@@ -1,11 +1,21 @@
+<!-- Place details page -->
+
 <h1><%= @place["name"] %></h1>
 
-<h2>My Posts</h2>
-<% for post in @posts %>
-  <h3><%= post["title"] %></h3>
-  <h4><%= post["posted_on"] %></h4>
-  <p><%= post["description"] %></p>
-<% end %>
+<ul>
+  <% if @posts %>
+    <% for post in @posts %>
+    <li>
+      <strong><%= post["title"] %><br></strong>
+      <%= post["posted_on"] %><br>
+      <%= post["description"] %>
+      <br><br> <!-- Add two <br> tags to create a space between posts -->
+    </li>
+    <% end %>
+  <% else %>
+    <li>No posts found.</li>
+  <% end %>
+</ul>
 
 <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
