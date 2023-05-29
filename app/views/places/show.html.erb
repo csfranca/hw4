@@ -1,9 +1,12 @@
 <!-- Place details page -->
 
 <h1><%= @place["name"] %></h1>
+<h2>My Posts</h2>
 
 <ul>
-  <% if @posts %>
+  <% if @posts.empty? %>
+    <li>No posts found.</li>
+  <% else %>
     <% for post in @posts %>
     <li>
       <strong><%= post["title"] %><br></strong>
@@ -12,8 +15,6 @@
       <br><br> <!-- Add two <br> tags to create a space between posts -->
     </li>
     <% end %>
-  <% else %>
-    <li>No posts found.</li>
   <% end %>
 </ul>
 
