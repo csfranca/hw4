@@ -1,27 +1,35 @@
 <!-- Place details page -->
 
-<h1><%= @place["name"] %></h1>
-<h2>My Posts</h2>
+<div style="margin-bottom: 1em;"></div>
 
-<ul>
-  <% if @posts.empty? %>
-    <li>No posts found.</li>
-  <% else %>
-    <% for post in @posts %>
-    <li>
-      <strong><%= post["title"] %><br></strong>
-      <%= post["posted_on"] %><br>
-      <%= post["description"] %>
-      <br><br> <!-- Add two <br> tags to create a space between posts -->
-    </li>
-    <% end %>
+<h1 style="color: #B076FF;"><%= @place["name"] %></h1>
+
+<div style="margin-bottom: 1em;"></div>
+
+<h4 style="color: #4D4D4D;">My journal entries</h4>
+
+<div style="margin-bottom: 1em;"></div>
+
+<div class="row">
+  <% for post in @posts %>
+    <div class="col-lg-4 col-md-6 mb-4">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title"><%= post["title"] %></h5>
+          <p class="card-text">
+            <%= post["posted_on"] %><br>
+            <%= post["description"] %>
+          </p>
+        </div>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
 <p>
-  <a href="/posts/new?place_id=<%= @place["id"] %>">New Post</a>
+  <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-outline-dark">New Post</a>
 </p>
 
 <p>
-  <a href="/places">Back to All Places</a>
+  <a href="/places" class="btn btn-outline-dark">Back to All Places</a>
 </p>
