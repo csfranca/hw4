@@ -8,8 +8,9 @@ class PostsController < ApplicationController
   def create
     if current_user
       @post = Post.new(post_params)
+      @post.uploaded_image.attach(params["post"]["uploaded_image"])
       @post.user_id = current_user.id
-
+      
       if @post.save
         redirect_to "/places/#{params["post"]["place_id"]}"
       else
@@ -36,17 +37,6 @@ class PostsController < ApplicationController
   end
 end
 
-# def create
-#   if @current_user
-#     @post = Post.new
-#     @post["body"] = params["post"]["body"]
-#     @post["image"] = params["post"]["image"]
-#     @post["user_id"] = @current_user["id"]
-#     @post.save
-#   else
-#     flash["notice"] = "Login first."
-#   end
-#   redirect_to "/posts"
-# end
-
-# end
+class Post < ApplicationRecord
+  has_one_attached :uploaded_image
+end

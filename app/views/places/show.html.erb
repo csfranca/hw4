@@ -14,6 +14,13 @@
   <% for post in @posts %>
     <div class="col-lg-4 col-md-6 mb-4">
       <div class="card">
+        <% if post.uploaded_image.attached? %>
+          <%= image_tag url_for(post.uploaded_image), class: "card-img-top img-fluid" %>
+        <% elsif post["image"].present? %>
+          <%= image_tag post["image"], class: "card-img-top img-fluid" %>
+        <% else %>
+          <img src="placeholder.jpg" class="card-img-top img-fluid" alt="Placeholder Image">
+        <% end %>
         <div class="card-body">
           <h5 class="card-title"><%= post["title"] %></h5>
           <p class="card-text">
@@ -25,6 +32,7 @@
     </div>
   <% end %>
 </div>
+
 
 <p>
   <a href="/posts/new?place_id=<%= @place["id"] %>" class="btn btn-outline-dark">New Post</a>

@@ -8,21 +8,30 @@
   <% if @current_user %>
     <%= form_with :model => @post do |form| %>
       <%= form.hidden_field "place_id" %>
-      <p>
+      
+      <div class="mb-3">
         <%= form.label "title", :class => "form-label" %>
         <%= form.text_field "title", :class => "form-control" %>
-      </p>
-      <p>
+      </div>
+      
+      <div class="mb-3">
         <%= form.label "description", :class => "form-label" %>
         <%= form.text_field "description", :class => "form-control" %>
-      </p>
-      <p>
+      </div>
+      
+      <div class="mb-3">
         <%= form.label "posted_on", :class => "form-label" %>
         <%= form.date_field "posted_on", :class => "form-control" %>
-      </p>
-      <p>
+      </div>
+      
+      <div class="mb-3">
+      <%= form.label "uploaded_image", :class => "form-label" %>
+      <%= form.file_field "uploaded_image", :class => "form-control" %>
+      </div>
+      
+      <div class="mb-3">
         <%= form.submit "Create post", :class => "btn btn-outline-dark" %>
-      </p>
+      </div>
     <% end %>
   <% else %>
     <ul style="list-style: none; padding-left: 0;">
