@@ -1,19 +1,32 @@
-<h1>New User Account</h1>
+<div style="margin-bottom: 1em;"></div>
+
+<h4 style="color: #4D4D4D;">Create a new user account</h4>
+
+<div style="margin-bottom: 1em;"></div>
 
 <%= form_with :model => @user do |form| %>
-  <p>
-    <%= form.label "username" %>
-    <%= form.text_field "username" %>
-  </p>
-  <p>
-    <%= form.label "email" %>
-    <%= form.text_field "email" %>
-  </p>
-  <p>
-    <%= form.label "password" %>
-    <%= form.password_field "password" %>
-  </p>
-  <p>
-    <%= form.submit "Sign up" %>
-  </p>
+  <div class="mb-3">
+    <%= form.label "username", :class => "form-label" %>
+    <%= form.text_field "username", :class => "form-control" %>
+  </div>
+
+<div class="mb-3">
+    <%= form.label "email", :class => "form-label" %>
+    <%= form.text_field "email", :class => "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label "password", :class => "form-label" %>
+    <%= form.password_field "password", :class => "form-control" %>
+  </div>
+  
+  <%= form.submit "Sign up", :class => "btn btn-outline-dark" %>
 <% end %>
+
+
+
+
+
+
+
+
